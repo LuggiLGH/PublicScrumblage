@@ -417,7 +417,7 @@ func starstorm():
 	
 	sc.set_base_stat("Rotater.locked",true)
 	sc.set_base_stat("Rotater.bounce_spin_boost",0.0)
-	Global.rotate_to(rotater,4.7,0.2)
+	rotater.rotate_to(4.7,0.2)
 	
 	%CrystalShine.emitting = true
 	SoundQueue.play("uid://du7q4whl7sh2k",1,0.8)

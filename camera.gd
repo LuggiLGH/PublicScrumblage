@@ -41,6 +41,7 @@ func add_quake(amount: float):
 
 func _physics_process(delta):
 	if quake <= 0.0:
+		offset=Vector2(0,0)
 		return
 
 	var _offset = Vector2(randf_range(-1.0, 1.0),randf_range(-1.0, 1.0)) * max_offset*min(quake,1.5)

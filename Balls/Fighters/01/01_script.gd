@@ -78,7 +78,7 @@ func lazer():
 	
 	
 	$"../CPUParticles2D".emitting=true
-	Global.rotate_to(rotater,rot_lock,0.8)
+	rotater.rotate_to(rot_lock,0.8)
 	SoundQueue.play("res://Sounds/laser-power-up_B_minor.wav",0.9,0.8)
 	
 	## Power up and wait delay before releasing lazer
@@ -215,7 +215,7 @@ func shoot():
 	sc.set_base_stat("Rotater.bounce_spin_boost",0.0)
 	sc.set_base_stat("Rotater.angular_velocity",sign(sc.get_stat("Rotater.angular_velocity")))
 		
-	Global.rotate_to(rotater,rot_lock,0.07)
+	rotater.rotate_to(rot_lock,0.07)
 	await delay(0.07)
 	
 	if !Global.can_act(ball):

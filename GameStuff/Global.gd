@@ -23,22 +23,6 @@ enum GAME_MODES {ONEVONE,DUO,FFA}
 var hitstop:float=0.15
 var critstop:float=0.45
 
-## Rotates a rotater to an angle over a duration
-## Used to aimed shooting
-func rotate_to(rotater:Rotater,target_angle: float, duration: float):
-	var start_angle = rotater.rotation
-	var tween = create_tween()
-	tween.tween_method(
-		func(t):
-			if !is_instance_valid(rotater):
-				return
-			rotater.rotation = lerp_angle(start_angle, target_angle, t),
-		0.0,
-		1.0,
-		duration
-	)
-	await tween.finished
-	return
 	
 func get_random_position_in_arena(starting_position: Vector2) -> Vector2:
 	var max_bounces: int = 5

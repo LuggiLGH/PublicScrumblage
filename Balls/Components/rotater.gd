@@ -114,7 +114,17 @@ func update_stats(stat, new_val):
 	elif stat == stat_name + ".flipper_min":
 		flipper_min = new_val
 
-
+## Rotates a rotater to an angle over a duration
+## Used to aimed shooting
+func rotate_to(target_angle: float, duration: float):
+	var start_angle = rotation
+	var tween = create_tween()
+	tween.tween_method(
+		func(t):
+			rotation = lerp_angle(start_angle, target_angle, t),0.0,1.0,duration)
+	await tween.finished
+	return
+	
 func update_scale():
 	scale = ball.ball_scale * base_scale
 

@@ -177,6 +177,7 @@ shape = SubResource("RectangleShape2D_7dm0k")
 debug_color = Color(0, 0.6, 0.69803923, 0)
 
 [node name="MapCenter" type="Marker2D" parent="Arena" unique_id=1951032771]
+position = Vector2(0, -11)
 script = ExtResource("5_23ga0")
 
 [node name="Deleter" type="Area2D" parent="Arena" unique_id=2063575567]
@@ -262,16 +263,16 @@ scale = Vector2(1.1, 1.1)
 script = ExtResource("15_7pt0g")
 
 [node name="Spawnpos1a" type="Marker2D" parent="." unique_id=1824530167]
-position = Vector2(266, 349)
+position = Vector2(266, 294)
 
 [node name="Spawnpos1b" type="Marker2D" parent="." unique_id=6404519]
-position = Vector2(266, 713)
+position = Vector2(266, 658)
 
 [node name="Spawnpos2a" type="Marker2D" parent="." unique_id=1654661731]
-position = Vector2(1043, 349)
+position = Vector2(1043, 294)
 
 [node name="Spawnpos2b" type="Marker2D" parent="." unique_id=1083377861]
-position = Vector2(1043, 713)
+position = Vector2(1043, 658)
 
 [node name="VS" parent="." unique_id=17376053 instance=ExtResource("11_8sfp1")]
 visible = false

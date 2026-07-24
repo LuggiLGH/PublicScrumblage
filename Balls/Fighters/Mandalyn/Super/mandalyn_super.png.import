@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pe8rdiblivv8"
-path="res://.godot/imported/VSMandSuper.png-e047eaa6b12c9c59f951f30a12ad842c.ctex"
+uid="uid://dgttwc6ohcrw7"
+path="res://.godot/imported/mandalyn_super.png-5bce4dedd558faf5c59dc35ae00edc20.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Balls/Fighters/Mandalyn/VSMandSuper.png"
-dest_files=["res://.godot/imported/VSMandSuper.png-e047eaa6b12c9c59f951f30a12ad842c.ctex"]
+source_file="res://Balls/Fighters/Mandalyn/Super/mandalyn_super.png"
+dest_files=["res://.godot/imported/mandalyn_super.png-5bce4dedd558faf5c59dc35ae00edc20.ctex"]
 
 [params]
 

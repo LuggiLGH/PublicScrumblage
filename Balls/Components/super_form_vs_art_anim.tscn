@@ -4,7 +4,8 @@
 [ext_resource type="Script" uid="uid://bmsiocri242p7" path="res://Balls/Components/super_player.gd" id="2_k2224"]
 [ext_resource type="AudioStream" uid="uid://c4m7dvfwtiqr" path="res://Sounds/Transforms.wav" id="3_grfq4"]
 [ext_resource type="PackedScene" uid="uid://bswgwnt11dnq2" path="res://Balls/Components/VSAfter.tscn" id="4_grfq4"]
-[ext_resource type="Texture2D" uid="uid://pe8rdiblivv8" path="res://Balls/Fighters/Mandalyn/VSMandSuper.png" id="5_1ovxl"]
+[ext_resource type="Texture2D" uid="uid://pe8rdiblivv8" path="res://Balls/Fighters/Mandalyn/Super/VSMandSuper.png" id="5_1ovxl"]
+
 
 [sub_resource type="Animation" id="Animation_886m3"]
 length = 0.001
