@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://7meckvgvv1kl"]
 
 [ext_resource type="Script" uid="uid://ump2riesa4lk" path="res://GameStuff/BossStuff/boss_stat_display.gd" id="1_06dbq"]
+[ext_resource type="Script" uid="uid://bmbbojhcu1ned" path="res://Balls/bstat_box.gd" id="2_gj8kt"]
 [ext_resource type="Texture2D" uid="uid://c02icu7mfdkdx" path="res://Assets/FolderDescription.png" id="4_g6ybo"]
 [ext_resource type="Texture2D" uid="uid://fxv1r8rxxlgf" path="res://Assets/FolderBattle.png" id="5_xkxel"]
 [ext_resource type="Script" uid="uid://crcc7128ndwe7" path="res://UI/ui_healthbar_boss.gd" id="6_06dbq"]
@@ -89,6 +90,7 @@ overhealth = NodePath("Box/BattleBar/Healthbar/Overhealth")
 armor = NodePath("Box/BattleBar/Healthbar/Armor")
 
 [node name="Box" type="Node2D" parent="." unique_id=655908497]
+script = ExtResource("2_gj8kt")
 
 [node name="DescriptionBox" type="Control" parent="Box" unique_id=624450934]
 light_mask = 0
