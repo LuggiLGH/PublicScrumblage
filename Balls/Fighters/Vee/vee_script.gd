@@ -5,7 +5,6 @@ extends BehaviourScript
 @onready var rotater = $"../Rotater"
 @onready var aggressive = $"../Aggressive"
 @onready var danger_zone = $"../DangerZone"
-@onready var counter_arms = $"../CounterArms"
 @onready var meter_manager = $"../MeterManager"
 
 @onready var default: Node2D = $"../Visuals/Default"
@@ -18,7 +17,7 @@ var countering=false
 
 func _ready():
 	super()
-	counter_arms.visible=false
+	%DottedLines.visible=false
 	ball.bounce_wall.connect(slam_check)
 	ball.tree_exiting.connect(grab_died)
 	## Looper to trigger counter move
@@ -40,7 +39,7 @@ func counter():
 	#meter_manager.gain_meter(5)
 	countering=true
 	#sc.add_modifier("Ball.linear_velocity",1,0.35,"VeeCountering")
-	counter_arms.visible=true
+	%DottedLines.visible=true
 	default.set_visual("Counter")
 	sc.set_base_stat("HitProcessor.damage_scale",0.01)
 	await delay(0.6)
@@ -51,11 +50,11 @@ func uncounter():
 	if countering==true:
 		sc.remove_modifier("VeeCounter")
 		sc.set_base_stat("HitProcessor.damage_scale",1)
-		counter_arms.visible=false
+		%DottedLines.visible=false
 		default.set_visual("Default")
 		countering=false
 
-
+var gain_meter_multiplier=1.2
 func hit_process(data):
 	var attacker=data["ATTACKER"]
 	var victim = data["VICTIM"]
@@ -87,7 +86,7 @@ func hit_process(data):
 					if !thing.is_in_group("AntiGrapple") and !thing.is_in_group("AntiInteract"):
 						grapple(thing)
 						return
-			meter_manager.gain_meter(dmg*1.2)
+			meter_manager.gain_meter(dmg*gain_meter_multiplier)
 		
 
 
@@ -179,11 +178,13 @@ func grab_died():
 	sc.set_base_stat("HitProcessor.immune",false)
 	sc.set_base_stat("ContactDamager.enabled",true)
 	
+var min_grapple_damage=8
+var dmg_bonus_amount=22
 ## Function to deal grapple damage to enemy and nearby enemies
 func grapple_damage(victim):
 	var dir = ball.global_position.direction_to(victim.global_position)
-	var dmg_bonus = int(22*meter_manager.scale_value())
-	var data_dict={"DAMAGE":8+dmg_bonus,
+	var dmg_bonus = int(dmg_bonus_amount*meter_manager.scale_value())
+	var data_dict={"DAMAGE":min_grapple_damage+dmg_bonus,
 				"ATTACKER":ball,
 				"VICTIM":victim,
 				"KNOCKBACK":380,

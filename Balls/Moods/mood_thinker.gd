@@ -8,7 +8,8 @@ func _ready():
 
 
 func behaviour():
-	super()
+	if super():
+		return
 	ball.bounce.emit()
 	var speed = (ball.get_velocity().normalized())
 	

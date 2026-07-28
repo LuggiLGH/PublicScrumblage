@@ -7,15 +7,20 @@ var delay=1.0
 @onready var rank_b = $RankRoot/Holder/RankB
 @onready var rank_c = $RankRoot/Holder/RankC
 @onready var rank_d = $RankRoot/Holder/RankD
-
+var sound_name_list={}
 signal set_level
 var current_rank = 1
 var progress:float=0.0
 var bump_tween:Tween
 @onready var holder = $RankRoot/Holder
-var resetter :float=35
+var resetter :float=40
 var combo_extend=0.0
 var combo_length=0.12
+var max_level=5
+
+func _ready() -> void:
+	for i in range(max_level):
+		sound_name_list[i+1]=0
 
 func gain_progress(value):
 	#print(value)
@@ -24,13 +29,15 @@ func gain_progress(value):
 	
 	combo_extend=combo_length
 	progress=min(progress+value,100)
-	if current_rank<5 and progress>=100:
+	var prev_rank=current_rank
+	if current_rank<max_level and progress>=100:
 		current_rank+=1
 		progress=resetter
 		update_rank_symbol()
 		rank_up_sound()
 	update_ranks_visuals()
-	baller.data_transfer.emit({"ID":"UPDATE_COMBO","RANK":current_rank})
+	if current_rank!=prev_rank:
+		baller.data_transfer.emit({"ID":"UPDATE_COMBO","RANK":current_rank})
 	
 	if bump_tween:
 		bump_tween.kill()
@@ -44,6 +51,8 @@ func hurted(val):
 
 func lose_progress(value):
 	progress-=value
+	
+	var prev_rank=current_rank
 	if progress<=0.0:
 		if current_rank > 1:
 			current_rank-=1
@@ -55,9 +64,14 @@ func lose_progress(value):
 			delete()
 			return
 	update_ranks_visuals()
-	baller.data_transfer.emit({"ID":"UPDATE_COMBO","RANK":current_rank})
+	
+	if current_rank!=prev_rank:
+		baller.data_transfer.emit({"ID":"UPDATE_COMBO","RANK":current_rank})
 
 func rank_up_sound():
+	if sound_name_list[current_rank]<5:
+		return
+	sound_name_list[current_rank]=0.0
 	match current_rank:
 		1:
 			SoundQueue.play("res://Balls/Effects/Combo/demonic.mp3")
@@ -141,7 +155,8 @@ func _physics_process(delta):
 	if combo_extend > 0.0:
 		combo_extend=max(0.0,combo_extend-delta)
 		return
-	
+	for i in sound_name_list.keys():
+		sound_name_list[i]+=delta
 	lose_progress((0.5+30*pow(current_rank/5.0,1.8))*delta)
 
 func _process(delta):
