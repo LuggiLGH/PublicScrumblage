@@ -162,7 +162,7 @@ func hurt(data):
 	health_lost.emit(health)
 	health_changed.emit(health)
 	
-	ball.got_hit.emit()
+	ball.got_hit.emit(data)
 
 func valid_type(type:Array):
 	return type.has("PIERCING_DAMAGE")

@@ -13,6 +13,7 @@ var ball:BallBodyBase
 signal current_visual
 
 @onready var default: Node2D = $"../Default"
+@onready var hurt: Node2D = $"../Hurt"
 
 func _enter_tree():
 	ball=visuals.ball
@@ -23,14 +24,26 @@ func _ready():
 	ball.got_hit.connect(hurt_visual)
 	EventManager.critted.connect(crit_visual)
 
-func hurt_visual():
+func hurt_visual(data):
 	for i in default.get_children():
 		if i.visible==true:
 			visuals.add_quake(0.7)
 			if i.locked_visual==false and hurt_switch:
-				play("Hurt")
+				if data["DAMAGE"]==0:
+					hurt.visible=true
+					default.visible=false
+				else:
+					play("Hurt")
+					hurt.visible=true
+					default.visible=false
+				
 			else:
-				play("HurtFlash")
+				if data["DAMAGE"]==0:
+					continue
+				else:
+					play("Hurt")
+				
+				
 	current_visual.emit("Hurt")
 	
 	hurttime=Time.get_ticks_usec()

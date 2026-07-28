@@ -33,7 +33,7 @@ func hurt(data):
 		SoundQueue.play(sfx,pitch_mod+0.25*(randf()-0.5),volume_mod)
 		
 	
-	ball.got_hit.emit()
+	ball.got_hit.emit(data)
 
 func valid_type(type:Array):
 	return type.has("STATUS_EFFECT") or type.has("PIERCING_DAMAGE")
