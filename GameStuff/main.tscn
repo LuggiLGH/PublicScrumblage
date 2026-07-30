@@ -270,12 +270,12 @@ debug_color = Color(0.9212087, 0.21967295, 0.441304, 0)
 
 [node name="BStatMarker" type="Marker2D" parent="Arena" unique_id=1146257228]
 unique_name_in_owner = true
-position = Vector2(-639, 280)
+position = Vector2(-640, 280)
 script = ExtResource("14_es2f0")
 
 [node name="BStatMarker2" type="Marker2D" parent="Arena" unique_id=919126951]
 unique_name_in_owner = true
-position = Vector2(5, 280)
+position = Vector2(4, 280)
 script = ExtResource("14_es2f0")
 
 [node name="Spawnpos1" type="Marker2D" parent="." unique_id=1824530167]
