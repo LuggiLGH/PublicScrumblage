@@ -464,31 +464,31 @@ _data = {
 [node name="Winner" type="ColorRect" unique_id=219818636]
 light_mask = 32768
 z_index = 10
-offset_left = -126.0
+offset_left = -110.5
 offset_top = 684.0
-offset_right = 1395.0
+offset_right = 1410.5
 offset_bottom = 838.0
 color = Color(0, 0, 0, 0.5019608)
 
 [node name="Label" type="Label" parent="." unique_id=964600105]
 light_mask = 32768
 layout_mode = 0
-offset_left = 236.0
+offset_left = 213.0
 offset_top = -4.0
-offset_right = 1331.0
+offset_right = 1308.0
 offset_bottom = 188.0
 text = "WINNER"
 label_settings = SubResource("LabelSettings_2cqfq")
 horizontal_alignment = 1
 
 [node name="WinnerImages" type="Node2D" parent="." unique_id=1131056247]
-position = Vector2(-13, 0)
+position = Vector2(-61, 0)
 
 [node name="W" type="TextureRect" parent="WinnerImages" unique_id=2044934413]
 modulate = Color(1, 1, 1, 0)
 offset_left = 489.0
 offset_right = 653.0
-offset_bottom = 155.00015
+offset_bottom = 155.00021
 pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("1_8p8v0")
 
@@ -513,7 +513,7 @@ modulate = Color(1, 1, 1, 0)
 offset_left = 649.0
 offset_top = 6.0
 offset_right = 696.0
-offset_bottom = 148.00012
+offset_bottom = 148.00018
 pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("3_woym7")
 
@@ -533,7 +533,7 @@ modulate = Color(1, 1, 1, 0)
 offset_left = 700.0
 offset_top = 9.0
 offset_right = 798.0
-offset_bottom = 153.00006
+offset_bottom = 153.00003
 pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("5_k8ii0")
 
@@ -573,7 +573,7 @@ modulate = Color(1, 1, 1, 0)
 offset_left = 920.0
 offset_top = 6.0
 offset_right = 1017.0
-offset_bottom = 157.00006
+offset_bottom = 157.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("9_xh3qh")
 
@@ -593,7 +593,7 @@ modulate = Color(1, 1, 1, 0)
 offset_left = 1027.0
 offset_top = 6.0
 offset_right = 1148.0
-offset_bottom = 154.00003
+offset_bottom = 154.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("11_ib8vf")
 

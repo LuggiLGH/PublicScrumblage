@@ -48,16 +48,17 @@ position = Vector2(0, 182)
 [node name="FlameLeft" type="ColorRect" parent="Left" unique_id=1563876614]
 clip_children = 1
 light_mask = 0
-offset_left = -239.0
+offset_left = -257.0
 offset_top = -543.0
-offset_right = 840.0
+offset_right = 822.0
 offset_bottom = 1281.0
 rotation = 0.18041053
+metadata/_edit_use_anchors_ = true
 
 [node name="VS" type="Sprite2D" parent="Left/FlameLeft" unique_id=565668873]
 light_mask = 0
 z_index = 2
-position = Vector2(1027.4558, 851.45917)
+position = Vector2(1028.6128, 841.0831)
 rotation = -0.18041053
 texture = ExtResource("1_n15j0")
 
@@ -93,18 +94,19 @@ texture = SubResource("GradientTexture2D_yaehf")
 
 [node name="SplashName" type="Label" parent="Left" unique_id=79025752]
 light_mask = 0
-offset_left = 26.0
+offset_left = 27.5
 offset_top = -191.0
-offset_right = 77.0
+offset_right = 78.5
 offset_bottom = 710.0
 label_settings = ExtResource("5_3rh7a")
 horizontal_alignment = 1
 autowrap_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="ACMarker" type="Marker2D" parent="Left" unique_id=620890681]
 light_mask = 0
 z_index = 1
-position = Vector2(278, 903)
+position = Vector2(278.5, 903)
 
 [node name="Right" type="Node2D" parent="." unique_id=1646486292]
 light_mask = 0
@@ -113,11 +115,12 @@ position = Vector2(0, 182)
 [node name="FlameRight" type="ColorRect" parent="Right" unique_id=1265638543]
 clip_children = 1
 light_mask = 0
-offset_left = 856.99994
+offset_left = 838.99994
 offset_top = -542.99994
-offset_right = 1936.0
+offset_right = 1918.0
 offset_bottom = 1281.0
 rotation = 0.18041053
+metadata/_edit_use_anchors_ = true
 
 [node name="Flame" type="Sprite2D" parent="Right/FlameRight" unique_id=1918085606]
 modulate = Color(0, 0.5666666, 1, 1)
@@ -152,40 +155,44 @@ texture = SubResource("GradientTexture2D_yaehf")
 [node name="VS" type="Sprite2D" parent="Right/FlameRight" unique_id=525221650]
 light_mask = 0
 z_index = 2
-position = Vector2(36.799335, 1032.1487)
+position = Vector2(37.95631, 1021.7726)
 rotation = -0.18041053
 texture = ExtResource("6_5ppat")
 
 [node name="ACMarker" type="Marker2D" parent="Right" unique_id=538589727]
 light_mask = 0
 z_index = 1
-position = Vector2(1021, 903)
+position = Vector2(1021.5, 903)
 
 [node name="SplashName" type="Label" parent="Right" unique_id=1953755512]
 light_mask = 0
-offset_left = 1231.0
+offset_left = 1232.5
 offset_top = -190.0
-offset_right = 1271.0
+offset_right = 1272.5
 offset_bottom = 711.0
 label_settings = ExtResource("5_3rh7a")
 horizontal_alignment = 1
 autowrap_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1477690077]
 volume_db = 12.0
 
 [node name="CreditScroller" parent="." unique_id=894832924 instance=ExtResource("6_abl6m")]
 light_mask = 0
-offset_left = -77.0
+offset_left = -74.5
 offset_top = 69.0
-offset_right = 1373.0
+offset_right = 1375.5
 offset_bottom = 182.0
+metadata/_edit_use_anchors_ = true
 
 [node name="CommunityArt" parent="." unique_id=1879221597 instance=ExtResource("10_10ktq")]
+visible = false
 
 [node name="Winner" parent="." unique_id=219818636 instance=ExtResource("11_10ktq")]
-offset_left = -175.99986
+offset_left = -148.0
 offset_top = 749.0
-offset_right = 1345.0001
+offset_right = 1373.0
 offset_bottom = 903.0
 scale = Vector2(1.05, 1.05)
+metadata/_edit_use_anchors_ = true
