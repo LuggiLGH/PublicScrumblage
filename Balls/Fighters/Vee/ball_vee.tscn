@@ -157,6 +157,7 @@ script = ExtResource("4_y1l3w")
 ball = NodePath("..")
 
 [node name="CounterArms" type="Sprite2D" parent="." unique_id=1761056221]
+unique_name_in_owner = true
 z_index = 1
 position = Vector2(-50, 34)
 scale = Vector2(0.52, 0.52)

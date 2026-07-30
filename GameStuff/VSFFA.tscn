@@ -224,17 +224,17 @@ texture = SubResource("GradientTexture2D_yaehf")
 volume_db = 12.0
 
 [node name="CreditScroller" parent="." unique_id=894832924 instance=ExtResource("7_2441o")]
-offset_left = -800.909
-offset_top = -572.4243
-offset_right = 649.091
-offset_bottom = -459.42432
+offset_left = -805.5
+offset_top = -572.424
+offset_right = 644.5
+offset_bottom = -459.424
 scale = Vector2(1.1, 1.1)
 
 [node name="CommunityArt" parent="." unique_id=562241288 instance=ExtResource("9_rxnok")]
 
 [node name="Winner" parent="." unique_id=219818636 instance=ExtResource("10_ah6jx")]
-offset_left = -823.0
+offset_left = -844.0
 offset_top = -52.99994
-offset_right = 698.0
+offset_right = 677.0
 offset_bottom = 101.00006
 scale = Vector2(1.1, 1.1)

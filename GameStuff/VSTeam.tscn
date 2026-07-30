@@ -46,7 +46,7 @@ position = Vector2(296, -318)
 position = Vector2(316, 210)
 
 [node name="Left" type="Node2D" parent="." unique_id=227121065]
-position = Vector2(-650, -456)
+position = Vector2(-675, -456)
 
 [node name="FlameLeft" type="ColorRect" parent="Left" unique_id=591862726]
 clip_children = 1
@@ -92,9 +92,9 @@ range_item_cull_mask = 1024
 texture = SubResource("GradientTexture2D_yaehf")
 
 [node name="SplashName" type="Label" parent="Left" unique_id=135383489]
-offset_left = 26.0
+offset_left = 46.0
 offset_top = -191.0
-offset_right = 77.0
+offset_right = 97.0
 offset_bottom = 710.0
 text = "TEAMNAME"
 label_settings = ExtResource("5_bqm6n")
@@ -104,10 +104,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ACMarker" type="Marker2D" parent="Left" unique_id=1124610943]
 z_index = 1
-position = Vector2(218.00008, 894)
+position = Vector2(243.5, 894)
 
 [node name="Right" type="Node2D" parent="." unique_id=57685616]
-position = Vector2(-650, -456)
+position = Vector2(-675, -456)
 
 [node name="FlameRight" type="ColorRect" parent="Right" unique_id=740978873]
 clip_children = 1
@@ -155,12 +155,12 @@ texture = SubResource("GradientTexture2D_yaehf")
 
 [node name="ACMarker" type="Marker2D" parent="Right" unique_id=1960637875]
 z_index = 1
-position = Vector2(1081.0001, 894)
+position = Vector2(1106.5, 894)
 
 [node name="SplashName" type="Label" parent="Right" unique_id=1993259528]
-offset_left = 1231.0
+offset_left = 1251.0
 offset_top = -190.0
-offset_right = 1271.0
+offset_right = 1291.0
 offset_bottom = 711.0
 text = "TEAMNAME"
 label_settings = ExtResource("5_bqm6n")
@@ -172,17 +172,17 @@ metadata/_edit_use_anchors_ = true
 volume_db = 5.0
 
 [node name="CreditScroller" parent="." unique_id=894832924 instance=ExtResource("8_ulvbn")]
-offset_left = -802.909
-offset_top = -515.4545
-offset_right = 647.091
-offset_bottom = -402.45453
+offset_left = -804.0
+offset_top = -515.455
+offset_right = 646.0
+offset_bottom = -402.45502
 scale = Vector2(1.1, 1.1)
 
 [node name="CommunityArt" parent="." unique_id=1879221597 instance=ExtResource("9_jy8nj")]
 
 [node name="Winner" parent="." unique_id=219818636 instance=ExtResource("11_jyetf")]
-offset_left = -791.00006
-offset_top = -55.000008
-offset_right = 729.99994
-offset_bottom = 98.99999
+offset_left = -805.0
+offset_top = -55.0
+offset_right = 716.0
+offset_bottom = 99.0
 scale = Vector2(1.05, 1.05)

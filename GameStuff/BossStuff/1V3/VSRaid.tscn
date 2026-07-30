@@ -6,8 +6,8 @@
 [ext_resource type="Script" uid="uid://1a6x7ykem1by" path="res://GameStuff/flame_vs_looper.gd" id="3_v3hsl"]
 [ext_resource type="Script" uid="uid://h60xb3efa2v5" path="res://GameStuff/noiselight.gd" id="4_bk25m"]
 [ext_resource type="Texture2D" uid="uid://ba1s378u02lue" path="res://GameStuff/BossStuff/topTri.png" id="5_damhu"]
-[ext_resource type="PackedScene" path="res://GameStuff/BossStuff/h_flow_container.tscn" id="6_bjlk1"]
-[ext_resource type="Shader" path="res://GameStuff/BossStuff/boss_infoText.gdshader" id="7_8eker"]
+[ext_resource type="PackedScene" uid="uid://cj8l8somymfc8" path="res://GameStuff/BossStuff/h_flow_container.tscn" id="6_bjlk1"]
+[ext_resource type="Shader" uid="uid://b7yayfldh2bbv" path="res://GameStuff/BossStuff/boss_infoText.gdshader" id="7_8eker"]
 [ext_resource type="Texture2D" uid="uid://dk578adhassu0" path="res://Assets/Grid.png" id="8_llles"]
 [ext_resource type="PackedScene" uid="uid://ytksf4py1d38" path="res://GameStuff/credit_scroller.tscn" id="9_5fuxi"]
 [ext_resource type="PackedScene" uid="uid://bd3xwpn1t7hb4" path="res://UI/winner.tscn" id="10_vtb45"]
@@ -330,17 +330,18 @@ stretch_mode = 1
 volume_db = 5.0
 
 [node name="CreditScroller" parent="." unique_id=894832924 instance=ExtResource("9_5fuxi")]
-offset_left = -800.90894
+offset_left = -803.0
 offset_top = -529.09094
-offset_right = 649.09106
+offset_right = 647.0
 offset_bottom = -416.09094
 scale = Vector2(1.1, 1.1)
 
 [node name="Winner" parent="." unique_id=219818636 instance=ExtResource("10_vtb45")]
-offset_left = -824.79974
+offset_left = -804.0
 offset_top = -83.99991
-offset_right = 696.20026
+offset_right = 717.0
 offset_bottom = 70.00009
 scale = Vector2(1.05, 1.05)
 
 [node name="CommunityArt" parent="." unique_id=853382217 instance=ExtResource("12_v3hsl")]
+visible = false

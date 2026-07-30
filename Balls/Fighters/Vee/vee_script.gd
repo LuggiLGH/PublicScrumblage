@@ -17,7 +17,7 @@ var countering=false
 
 func _ready():
 	super()
-	%DottedLines.visible=false
+	%CounterArms.visible=false
 	ball.bounce_wall.connect(slam_check)
 	ball.tree_exiting.connect(grab_died)
 	## Looper to trigger counter move
@@ -39,7 +39,7 @@ func counter():
 	#meter_manager.gain_meter(5)
 	countering=true
 	#sc.add_modifier("Ball.linear_velocity",1,0.35,"VeeCountering")
-	%DottedLines.visible=true
+	%CounterArms.visible=true
 	default.set_visual("Counter")
 	sc.set_base_stat("HitProcessor.damage_scale",0.01)
 	await delay(0.6)
@@ -50,7 +50,7 @@ func uncounter():
 	if countering==true:
 		sc.remove_modifier("VeeCounter")
 		sc.set_base_stat("HitProcessor.damage_scale",1)
-		%DottedLines.visible=false
+		%CounterArms.visible=false
 		default.set_visual("Default")
 		countering=false
 
