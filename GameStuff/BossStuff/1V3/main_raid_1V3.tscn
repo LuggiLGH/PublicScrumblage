@@ -58,21 +58,21 @@ offset_bottom = 2163.0
 color = Color(0.2851061, 0.019377397, 0.09425775, 1)
 
 [node name="ConfettiCannon" type="Node2D" parent="Background" unique_id=1819629780]
-position = Vector2(-49, 1003)
+position = Vector2(1010, 1003)
 script = ExtResource("4_sqjga")
 
 [node name="1" parent="Background/ConfettiCannon" unique_id=1065538475 instance=ExtResource("5_wcdm5")]
-position = Vector2(0, -168)
+position = Vector2(-684, -168)
 
 [node name="2" parent="Background/ConfettiCannon" unique_id=851078035 instance=ExtResource("5_wcdm5")]
-position = Vector2(-82, 153)
+position = Vector2(-766, 153)
 
 [node name="3" parent="Background/ConfettiCannon" unique_id=336738398 instance=ExtResource("5_wcdm5")]
-position = Vector2(1381, -168)
+position = Vector2(697, -168)
 scale = Vector2(-1, 1)
 
 [node name="4" parent="Background/ConfettiCannon" unique_id=1871866166 instance=ExtResource("5_wcdm5")]
-position = Vector2(1450, 153)
+position = Vector2(766, 153)
 scale = Vector2(-1, 1)
 
 [node name="Background3" type="ColorRect" parent="." unique_id=252041783]
@@ -100,7 +100,7 @@ color = Color(0.7817457, 0.88292295, 0.86553365, 1)
 [node name="StageBorder2" type="ColorRect" parent="Arena/StageBorder2" unique_id=1948539731]
 light_mask = 0
 layout_mode = 0
-offset_left = 811.0
+offset_left = 813.0
 offset_top = 1155.0
 offset_right = 1626.0
 offset_bottom = 1625.0
@@ -117,9 +117,9 @@ scale = Vector2(1.385, 1.385)
 [node name="StageBackground" type="TextureRect" parent="Arena" unique_id=73240295]
 light_mask = 32
 z_index = -7
-offset_left = -775.0
+offset_left = -773.5
 offset_top = -651.0
-offset_right = 772.0
+offset_right = 773.5
 offset_bottom = 313.99994
 texture = ExtResource("7_o44fx")
 
@@ -132,7 +132,7 @@ texture = ExtResource("11_urx6i")
 expand_mode = 1
 
 [node name="Ciel" type="StaticBody2D" parent="Arena" unique_id=59287100]
-position = Vector2(-64.75, -1171)
+position = Vector2(-63.25, -1171)
 rotation = -1.5707964
 collision_layer = 65536
 collision_mask = 0
@@ -144,7 +144,7 @@ shape = SubResource("RectangleShape2D_lbak1")
 debug_color = Color(0, 0.6, 0.69803923, 0)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Arena" unique_id=1294565509]
-position = Vector2(-671, -699)
+position = Vector2(-669.5, -699)
 rotation = -1.5707964
 collision_mask = 0
 physics_material_override = SubResource("PhysicsMaterial_7dm0k")
@@ -166,7 +166,7 @@ shape = SubResource("RectangleShape2D_5vtv2")
 debug_color = Color(0, 0.6, 0.69803923, 0)
 
 [node name="Ground" type="StaticBody2D" parent="Arena" unique_id=54313255 groups=["Ground"]]
-position = Vector2(-671, -728)
+position = Vector2(-669.5, -728)
 rotation = -1.5707964
 collision_mask = 0
 physics_material_override = SubResource("PhysicsMaterial_7dm0k")
@@ -177,11 +177,11 @@ shape = SubResource("RectangleShape2D_7dm0k")
 debug_color = Color(0, 0.6, 0.69803923, 0)
 
 [node name="MapCenter" type="Marker2D" parent="Arena" unique_id=1951032771]
-position = Vector2(-1.5, -168.5)
+position = Vector2(0, -168.5)
 script = ExtResource("8_2rbr1")
 
 [node name="Deleter" type="Area2D" parent="Arena" unique_id=2063575567]
-position = Vector2(-494, 670)
+position = Vector2(-492.5, 670)
 rotation = -1.5707964
 collision_layer = 0
 collision_mask = 2
@@ -209,19 +209,19 @@ debug_color = Color(0.9212087, 0.21967295, 0.441304, 0)
 
 [node name="BStatMarker" type="Marker2D" parent="Arena" unique_id=1011928008]
 unique_name_in_owner = true
-position = Vector2(-769, 358)
+position = Vector2(-764, 358)
 scale = Vector2(1.175, 1.175)
 script = ExtResource("16_0so2k")
 
 [node name="BStatMarker2" type="Marker2D" parent="Arena" unique_id=1431775348]
 unique_name_in_owner = true
-position = Vector2(-769, 509)
+position = Vector2(-764, 509)
 scale = Vector2(1.175, 1.175)
 script = ExtResource("16_0so2k")
 
 [node name="BStatMarker3" type="Marker2D" parent="Arena" unique_id=1181872885]
 unique_name_in_owner = true
-position = Vector2(-769, 662.00006)
+position = Vector2(-764, 662.0001)
 scale = Vector2(1.175, 1.175)
 script = ExtResource("16_0so2k")
 
@@ -229,16 +229,16 @@ script = ExtResource("16_0so2k")
 position = Vector2(-135, 947)
 
 [node name="Spawnpos1" type="Marker2D" parent="." unique_id=1824530167]
-position = Vector2(248.5, 726)
+position = Vector2(250, 726)
 
 [node name="Spawnpos1b" type="Marker2D" parent="." unique_id=6404519]
-position = Vector2(648.5, 726)
+position = Vector2(650, 726)
 
 [node name="Spawnpos1c" type="Marker2D" parent="." unique_id=1654661731]
-position = Vector2(1048.5, 726)
+position = Vector2(1050, 726)
 
 [node name="Spawnpos2" type="Marker2D" parent="." unique_id=839783182]
-position = Vector2(648.5, 237)
+position = Vector2(650, 237)
 
 [node name="VS" parent="." unique_id=505807066 instance=ExtResource("12_sfphy")]
 visible = false
@@ -273,7 +273,7 @@ position = Vector2(981, 986)
 position = Vector2(508, -768)
 
 [node name="Marker2D2" type="Marker2D" parent="." unique_id=1036805420]
-position = Vector2(648.5, 900)
+position = Vector2(650, 900)
 
 [connection signal="area_entered" from="Arena/Deleter" to="Arena/Deleter" method="_on_area_entered"]
 [connection signal="body_entered" from="Arena/Deleter" to="Arena/Deleter" method="_on_body_entered"]
