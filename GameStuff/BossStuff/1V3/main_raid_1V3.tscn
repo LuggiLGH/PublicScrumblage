@@ -247,7 +247,7 @@ transform = Transform2D(1, 0, 0, 1, 650, 650)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=337822616]
 z_index = 12
-position = Vector2(650, 649)
+position = Vector2(650, 649.5)
 zoom = Vector2(0.8, 0.8)
 script = ExtResource("20_axve2")
 
