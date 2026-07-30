@@ -58,7 +58,7 @@ metadata/_edit_use_anchors_ = true
 [node name="VS" type="Sprite2D" parent="Left/FlameLeft" unique_id=565668873]
 light_mask = 0
 z_index = 2
-position = Vector2(1027.4558, 851.45917)
+position = Vector2(1028.6128, 841.0831)
 rotation = -0.18041053
 texture = ExtResource("1_n15j0")
 
@@ -155,7 +155,7 @@ texture = SubResource("GradientTexture2D_yaehf")
 [node name="VS" type="Sprite2D" parent="Right/FlameRight" unique_id=525221650]
 light_mask = 0
 z_index = 2
-position = Vector2(36.799335, 1032.1487)
+position = Vector2(37.95631, 1021.7726)
 rotation = -0.18041053
 texture = ExtResource("6_5ppat")
 

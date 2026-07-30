@@ -34,16 +34,16 @@ fill_to = Vector2(0.47350428, 1)
 script = ExtResource("1_bkiaf")
 
 [node name="VsSpawn1a" type="Marker2D" parent="." unique_id=299036839]
-position = Vector2(-316, -318)
+position = Vector2(-306, -318)
 
 [node name="VsSpawn1b" type="Marker2D" parent="." unique_id=1782638872]
-position = Vector2(-389, 207)
+position = Vector2(-352.5, 207)
 
 [node name="VsSpawn2a" type="Marker2D" parent="." unique_id=1406677048]
-position = Vector2(296, -318)
+position = Vector2(306, -318)
 
 [node name="VsSpawn2b" type="Marker2D" parent="." unique_id=1027060946]
-position = Vector2(316, 210)
+position = Vector2(352.5, 210)
 
 [node name="Left" type="Node2D" parent="." unique_id=227121065]
 position = Vector2(-675, -456)
@@ -59,7 +59,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="VS" type="Sprite2D" parent="Left/FlameLeft" unique_id=1757802442]
 z_index = 2
-position = Vector2(1029.4236, 851.1004)
+position = Vector2(1032.362, 828.20135)
 rotation = -0.18041053
 texture = ExtResource("1_vnjki")
 
@@ -120,7 +120,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="VS" type="Sprite2D" parent="Right/FlameRight" unique_id=425987823]
 z_index = 2
-position = Vector2(40.734314, 1031.4312)
+position = Vector2(43.672836, 1008.53186)
 rotation = -0.18041053
 texture = ExtResource("6_613s1")
 

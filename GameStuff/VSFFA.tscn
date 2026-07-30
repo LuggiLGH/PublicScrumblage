@@ -60,7 +60,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="VS" type="Sprite2D" parent="Left/FlameLeft" unique_id=1031965243]
 z_index = 2
-position = Vector2(1029.4236, 851.1004)
+position = Vector2(1033.5688, 826.4564)
 rotation = -0.18041053
 texture = ExtResource("2_k7j7d")
 
@@ -146,7 +146,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="VS" type="Sprite2D" parent="Right/FlameRight" unique_id=243215419]
 z_index = 2
-position = Vector2(40.19023, -36.80016)
+position = Vector2(44.335526, -61.44424)
 rotation = -0.18041053
 texture = ExtResource("6_j804y")
 
