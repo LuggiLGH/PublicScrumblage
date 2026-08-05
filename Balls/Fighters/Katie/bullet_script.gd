@@ -1,5 +1,4 @@
 extends BehaviourScript
-@onready var hit_processor = $"../HitProcessor"
 @onready var hitbox = $"../BulletHitbox"
 signal connected
 #var bounce_count=2
