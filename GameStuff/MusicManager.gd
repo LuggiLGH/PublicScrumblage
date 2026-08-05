@@ -29,7 +29,7 @@ func _ready():
 
 
 
-func play_music(track: AudioStream, fade_time: float = 1.0, loop: bool = true):
+func play_music(track: AudioStream, fade_time: float = 1.0, loop: bool = true, volume_db: float = 1.0):
 	if track == null:
 		return
 
@@ -51,7 +51,7 @@ func play_music(track: AudioStream, fade_time: float = 1.0, loop: bool = true):
 	fade_tween = create_tween()
 
 	fade_tween.tween_property(active_player, "volume_db", -80, fade_time)
-	fade_tween.tween_property(inactive_player, "volume_db", 0, fade_time)
+	fade_tween.tween_property(inactive_player, "volume_db", linear_to_db(volume_db), fade_time)
 
 	fade_tween.finished.connect(_swap_players)
 
