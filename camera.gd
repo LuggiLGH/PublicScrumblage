@@ -32,16 +32,19 @@ func critshake(thing):
 	
 @export var max_offset :float= 12.0   
 
+var quake_active = false
 var quake := 0.0
 var original_position: Vector2
 
 
 func add_quake(amount: float):
 	quake = max(quake, amount)
+	quake_active = true
 
 func _physics_process(delta):
-	if quake <= 0.0:
+	if quake <= 0.0 && quake_active == true:
 		offset=Vector2(0,0)
+		quake_active = false
 		return
 
 	var _offset = Vector2(randf_range(-1.0, 1.0),randf_range(-1.0, 1.0)) * max_offset*min(quake,1.5)
