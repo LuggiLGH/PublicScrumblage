@@ -10,7 +10,6 @@ var center :Vector2
 ## Team fight flag to enable team colors
 var team_fight=false
 var round_remaining:int=0
-signal dodge_event
 signal quake_trigger
 signal credit_scroller
 signal art_showcase

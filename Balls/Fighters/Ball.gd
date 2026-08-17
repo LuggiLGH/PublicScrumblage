@@ -150,7 +150,7 @@ var team :int
 ## The ball's collision should have default name
 ## May change in the future
 @onready var collision = get_node("CollisionShape2D")
-
+@export var is_ball:bool=true
 var creator_ball:BallBodyBase
 
 func get_root_creator()->BallBodyBase:
@@ -179,7 +179,7 @@ func _init():
 func dodges(source_ball):
 	if is_instance_valid(source_ball):
 		if dodge_rate>randf() and source_ball.team!=team:
-			Global.dodge_event.emit(source_ball,self)
+			EventManager.dodge_event.emit(source_ball,self)
 			dodge_effect()
 			return true
 	return false
@@ -234,7 +234,8 @@ func _enter_tree():
 	for group in groups:
 		add_to_group(group)
 	##All balls are in ball group
-	add_to_group("Ball")
+	if is_ball:
+		add_to_group("Ball")
 	
 	##Connect when hitstops occurto our hitstop_effect function
 	HitstopManager.set_stop.connect(hitstop_effect)
@@ -281,8 +282,9 @@ func get_value_scale():
 		val *= 0.0
 	return val
 
-
+var time_spawned=0
 func _ready():
+	time_spawned=Time.get_ticks_msec()
 	max_contacts_reported=10
 	stat_controller.set_base_stat("Ball.collision_disabled",collision.disabled)
 	stat_controller.set_base_stat("Ball.mass",mass)
@@ -469,6 +471,9 @@ func start_match():
 ## Detects when body is entered
 func _on_body_entered(body):
 	if freezed or HitstopManager.hitstopped:
+		return
+	## On the instant we spawn, ignore collision checks
+	if Time.get_ticks_msec()-time_spawned<5:
 		return
 	if body is StaticBody2D:
 		bounce.emit()

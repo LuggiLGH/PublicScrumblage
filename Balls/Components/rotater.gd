@@ -25,6 +25,9 @@ var prefreeze_a_velocity: float
 ## Good for combo fast hitting weapons
 @export var flipper_min: float = 1.0
 
+## If cleaving, increase or decrease speed by this amount
+@export var cleave_boost:float=0
+
 ## Aiming flag overrides base behaviour, makes rotater aim at nearest enemy
 @export var aiming: bool = false
 @export_enum( "Nearest To Self","Closest To Direction") var aim_mode: String = "Nearest To Self"
@@ -60,6 +63,7 @@ func connect_signals():
 		waiting.append_array(node.get_children())
 		if node is ClashBouncer:
 			node.flip.connect(flipper)
+			node.cleave_hit.connect(boost_cleave)
 	ball.bounce.connect(spin_bounce_boost)
 	ball.hitstop.connect(hitstop_effect)
 	ball.update_scale.connect(update_scale)
@@ -89,7 +93,9 @@ func connect_signals():
 		stat_controller.set_base_stat(stat_name + ".flipper_min", flipper_min)
 		stat_controller.add_alias(stat_name + ".flipper_min", "Rotater.flipper_min")
 	
-
+func boost_cleave():
+	angular_velocity = sign(angular_velocity)*max(abs(angular_velocity)+cleave_boost,0)
+	
 func update_stats(stat, new_val):
 	if !sync_stats:
 		return

@@ -80,7 +80,7 @@ func log_downed(ball:BallBodyBase):
 		if i.team==ball.team:
 			down_count+=1
 			
-	if team_checker[ball.team].size()==down_count:
+	if team_check_dict[ball.team].size()==down_count:
 		var id = ball.team
 		for i in downed:
 			if i.team==id:
@@ -115,6 +115,10 @@ func process_death(ball:BallBodyBase):
 signal deleting_node
 
 func start_music():
+	if get_tree().get_nodes_in_group("Super").size()>0:
+		MusicManager.play_music(load("res://Music/superballsbattle.mp3"), 1.0, true)
+		return
+		
 	match Global.skin_mode:
 		"Summer":
 			MusicManager.play_music(load("res://Music/Beach Where OCs Go to Ball Lab.mp3"), 1.0, true)
@@ -122,6 +126,9 @@ func start_music():
 			MusicManager.play_music(load("res://Music/hit it.mp3"), 1.0, true)
 		
 func win_stinger():
+	if get_tree().get_nodes_in_group("Super").size()>0:
+		SoundQueue.play("res://Music/superballsbattleWIN.mp3", 1.0, 0.4)
+		return
 	match Global.skin_mode:
 		"Summer":
 			SoundQueue.play("res://Music/Beach Where OCs Go to WIN.mp3", 1.0, 0.25)
@@ -169,12 +176,14 @@ func count_emit():
 	for i in team_check_dict.keys():
 		count+=team_check_dict[i].size()
 	fighter_count_update.emit(count)
-	
+
+
+signal died
 func something_died():
 	if !round_ongoing:
 		return
 	await get_tree().physics_frame
-			
+	died.emit()
 	team_count_update.emit(team_check_dict.size())
 	count_emit()
 	

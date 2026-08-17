@@ -26,7 +26,11 @@ signal damaged
 signal health_setted
 signal overhealth_changed 
 signal armor_changed
+signal custom_death
+
 var stat_controller:StatController
+
+var has_custom_death: bool = false
 
 func health_scale():
 	return health/max_health
@@ -70,7 +74,11 @@ func _ready():
 	
 	EventManager.round_end.connect(decay_destruct)
 	ball.revive.connect(revive_function)
-
+	
+	for child in get_children():
+		if child is CustomDeathAnimation:
+			child.ball = ball
+			has_custom_death = true
 
 var decay_val=0
 
@@ -153,12 +161,12 @@ func hurt(data):
 			if sfx=="res://Sounds/hurt_sfx.wav":
 				sfx = "res://Sounds/hard-metal-clang-sfx_70bpm_G_major.wav"
 	if calc_dmg>0:
-		stat_controller.set_base_stat(stat_name + ".health", max(health - dmg, 0))
+		stat_controller.set_base_stat(stat_name + ".health", max(health - calc_dmg, 0))
 		
 	if !critted:
 		SoundQueue.play(sfx,pitch_mod+0.25*(randf()-0.5),volume_mod)
 		
-	damaged.emit(dmg)
+	damaged.emit(calc_dmg)
 	health_lost.emit(health)
 	health_changed.emit(health)
 	
@@ -186,6 +194,9 @@ func decrease_health(val):
 func check_dead(health):
 	if health<=0:
 		if defeat_when_0==true:
+			if has_custom_death:
+				custom_death.emit()
+				return
 			if special_dead==true :
 				return
 				

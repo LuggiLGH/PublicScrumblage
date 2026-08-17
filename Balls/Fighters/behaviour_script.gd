@@ -6,7 +6,7 @@ var creator_script:BehaviourScript
 
 ## Gets reference to ball
 ## Make sure behaviour script is child of main ball
-@onready var ball = get_parent()
+@onready var ball:BallBodyBase = get_parent()
 
 ## Flag that enables/disables the behaviour
 @export var behaviour_active = true
@@ -76,6 +76,7 @@ func spawn_thing(res,auto_parent:bool=true,delete_on_death:bool=true,additional_
 	var new_thing = res.instantiate()
 	new_thing.skin=ball.skin
 	new_thing.creator_ball = ball
+	new_thing.global_position=ball.global_position
 	for i in new_thing.get_children():
 		if i is BehaviourScript:
 			i.creator_script=self
@@ -84,7 +85,6 @@ func spawn_thing(res,auto_parent:bool=true,delete_on_death:bool=true,additional_
 		#call_deferred("add_child",new_thing)
 	new_thing.hitstop_effect(ball.freezed)
 	new_thing.set_team(ball.team)
-	new_thing.global_position=ball.global_position
 	new_thing.tree_exiting.connect(_remove_from_list.bind(new_thing))
 	new_thing.skin=ball.skin
 	spawn_list.append(new_thing)

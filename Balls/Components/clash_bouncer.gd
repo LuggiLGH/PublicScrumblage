@@ -10,6 +10,8 @@ class_name ClashBouncer
 ## Cleave makes hitbox not flip from hitting directly
 @export var cleave=false
 
+signal cleave_hit
+
 ## This makes weapon ignore clashes (doesnt deflect)
 ## Use sparingly
 @export var ignore_clash=false 
@@ -112,5 +114,6 @@ func ball_hit(hit_ball:BallBodyBase):
 		if hit_ball.team == ball.team:
 			return
 		if cleave or hit_ball.auto_cleave:
+			cleave_hit.emit()
 			return
 		flip.emit()
