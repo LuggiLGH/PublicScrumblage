@@ -142,7 +142,7 @@ func activate_fist():
 	
 	while fist_ball.global_position.distance_to(ball.global_position) <= 65.0:
 		if !get_tree():
-			continue
+			return
 		await get_tree().process_frame
 	distance_check=true
 	

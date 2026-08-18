@@ -50,12 +50,8 @@ func winner_display(winner):
 	
 	Global.credit_scroller.emit()
 	if winner == null:
-		$Winner.color = Color("00000080")
-		$Winner.modulate.a = 0.0
-		var wtween = get_tree().create_tween()
-		wtween.tween_property($Winner, "modulate:a", 1.0, delay).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
-		$Winner/Label.text = "TIE"
-		$Winner/Label.modulate.a = 1.0
+		$Winner/TieImages.visible = true
+		$Winner/TieImages/AnimationPlayer.play("Slide")
 	else:
 		$Winner/WinnerImages.visible = true
 		$Winner/WinnerImages/AnimationPlayer.play("Slide")
