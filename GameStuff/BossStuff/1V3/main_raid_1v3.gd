@@ -259,7 +259,7 @@ func sound_boss():
 func intro_sequence():
 	await get_tree().create_timer(0.2).timeout
 
-	$Camera2D.add_quake(1.8)
+	Global.quake_trigger.emit(1.8)
 	SoundQueue.play("res://Sounds/SSBINTRO.mp3", 0.76, 0.6)
 
 	await get_tree().create_timer(1.16).timeout
