@@ -42,6 +42,7 @@ func team2_is_solo() -> bool:
 
 
 func _ready():
+	quotes.resize(2)
 	VERSUS = load("res://Sounds/TeamAudio/versus.wav")
 	TTS_WINS = load("res://Sounds/TeamAudio/wins.wav")
 	await loop_pause()
@@ -106,7 +107,6 @@ func setup_players():
 
 
 func setup_stats():
-	var counter := 0
 	var list = get_tree().get_nodes_in_group("BStats")
 	
 	
@@ -115,7 +115,6 @@ func setup_stats():
 		
 	for i in list.size():
 		if list[i]==null:
-			counter+=1
 			continue
 		
 		var dont_hide=false
@@ -206,40 +205,47 @@ func setup_quotes():
 	else:
 		team2_data = find_team_data(ball2a_res.resource_path, ball2b_res.resource_path)
 
+	
+	var solo_quotes = get_tree().get_nodes_in_group("WinQuote")
 	## Team 1 quote
 	if team1_is_solo():
-		# VSBase behaviour: WinQuote nodes are already in the scene, nothing to instantiate
-		var solo_quotes = get_tree().get_nodes_in_group("WinQuote")
 		if solo_quotes.size() > 0:
 			solo_quotes[0].global_position = $WinQuoteRight.global_position
-			quotes.append(solo_quotes[0])
+			quotes[0]=(solo_quotes[0])
+		else:
+			quotes[0]=null
+		
 	elif team1_data != null:
 		var team_quote = _build_team_quote(team1_data)
 		team1_audio = team1_data.get("team_audio", "")
 		team1_name  = team1_data.get("team_name", team1_name)
 		$WinQuoteRight.add_child(team_quote)
 		team_quote.position-=team_quote.size/2.0
-		quotes.append(team_quote)
+		quotes[0]=team_quote
 	else:
-		quotes.append(null)
+		quotes[0]=null
+		
 	## Team 2 quote
 	if team2_is_solo():
-		var solo_quotes = get_tree().get_nodes_in_group("WinQuote")
 		# The second solo quote is index 1 if team1 is also solo, otherwise index 0
-		var idx = 1 if team1_is_solo() else 0
+		var idx = 1 if team1_is_solo() else 2
 		if solo_quotes.size() > idx:
 			solo_quotes[idx].global_position = $WinQuoteLeft.global_position
-			quotes.append(solo_quotes[idx])
+			quotes[1]=solo_quotes[idx]
+			print(solo_quotes)
+		else:
+			quotes[1]=null
 	elif team2_data != null:
 		var team_quote = _build_team_quote(team2_data)
 		team2_audio = team2_data.get("team_audio", "")
 		team2_name  = team2_data.get("team_name", team2_name)
 		$WinQuoteLeft.add_child(team_quote)
 		team_quote.position-=team_quote.size/2.0
-		quotes.append(team_quote)
+		quotes[1]=team_quote
 	else:
-		quotes.append(null)
+		quotes[1]=null
 
+## Create teamquotes using team quote data
 func _build_team_quote(data: Dictionary) -> MarginContainer:
 	var team_quote: MarginContainer = WIN_BUBBLE_TEAM.instantiate()
 	var lines: Array = data["lines"]
@@ -247,7 +253,6 @@ func _build_team_quote(data: Dictionary) -> MarginContainer:
 	var vbox: VBoxContainer = team_quote.get_node("MarginContainer/VBoxContainer")
 	var template: Label = vbox.get_node("Description")
 
-	# get rid of the second hardcoded label — duplication handles any line count now
 	var description2 := vbox.get_node_or_null("Description2")
 	if description2:
 		description2.queue_free()
@@ -256,7 +261,7 @@ func _build_team_quote(data: Dictionary) -> MarginContainer:
 		var line_node: Label = template if i == 0 else template.duplicate()
 		if i > 0:
 			vbox.add_child(line_node)
-		line_node.text     = lines[i]["line"]
+		line_node.text = lines[i]["line"]
 		line_node.modulate = TeamDictionary.colorInfo[lines[i]["color"]]
 
 	return team_quote
@@ -327,7 +332,7 @@ func sound_names():
 
 	await team2_name_sfx()
 
-
+# Sfx name team 1
 func team1_name_sfx():
 	if team1_audio != "":
 		audio_stream_player.stream = TEAM
@@ -336,8 +341,8 @@ func team1_name_sfx():
 		audio_stream_player.stream = load(team1_audio)
 		audio_stream_player.play()
 		await get_tree().create_timer(1.2).timeout
+	# Check if solo
 	elif team1_is_solo():
-		# VSBase solo behaviour: just play the one name sound
 		audio_stream_player.stream = p1a["SFX_NAME"]
 		audio_stream_player.play()
 		await get_tree().create_timer(1).timeout
@@ -352,7 +357,7 @@ func team1_name_sfx():
 		audio_stream_player.play()
 		await get_tree().create_timer(1.1).timeout
 
-
+# Sfx name team 2
 func team2_name_sfx():
 	if team2_audio != "":
 		audio_stream_player.stream = TEAM
@@ -361,6 +366,7 @@ func team2_name_sfx():
 		audio_stream_player.stream = load(team2_audio)
 		audio_stream_player.play()
 		await get_tree().create_timer(1.2).timeout
+	# Check if solo
 	elif team2_is_solo():
 		audio_stream_player.stream = p2a["SFX_NAME"]
 		audio_stream_player.play()
@@ -437,6 +443,7 @@ func winner_display():
 
 		if quotes.get(1)!=null:
 			quotes[1].fade_in()
+	
 
 		var tween = get_tree().create_tween()
 		tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC).tween_property($VS/Right, "global_position", $VS/Right.global_position + Vector2(-offsetter, 0), delay)
