@@ -19,8 +19,8 @@ func clear_hitstop():
 	hitstopped=false
 	set_stop.emit(false)
 
-func set_histop(val:float):
-	if Global.team_fight:
+func set_histop(val:float,dynamic:bool=true):
+	if Global.team_fight and dynamic:
 		val=val*0.6
 	timer=max(timer,val)
 	if timer==0:
